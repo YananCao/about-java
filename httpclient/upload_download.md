@@ -1,21 +1,18 @@
 # use httpclient
 ## file upload
-        <code>
 		public static ResourceFileData getUploadResponse(MultipartFile file, String 				uploadUrl){
 			String result = "";
 			CloseableHttpResponse httpResponse=null;
 			CloseableHttpClient httpClient=HttpClients.createDefault();
 			HttpPost  hp = new HttpPost(uploadUrl);
-		
 			MultipartEntityBuilder builder = MultipartEntityBuilder.create()
-					.setMode(HttpMultipartMode.BROWSER_COMPATIBLE); 
+					.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
 			try {
 				InputStreamBody stream = new InputStreamBody(file.getInputStream(),
 						file.getOriginalFilename());
 				builder.addPart("file", stream).setCharset(CharsetUtils.get("UTF-8"));
 				HttpEntity multipart = builder.build();
 				hp.setEntity(multipart);
-			
 				httpResponse = httpClient.execute(hp);
 				HttpEntity entity = httpResponse.getEntity();
 				if(null != entity){
@@ -39,11 +36,9 @@
 					ResourceFileData.class);
 			return res;
 		}
-	</code>
-	
-	
+
+
 ## file download
-<code>
 		public static boolean getPdfFile(
 				String url, String fileName, String fileUrl,
 				String clearFileUrl, String userAgent,
@@ -102,4 +97,3 @@
 			}
 			return false;
 		}
-</code>
