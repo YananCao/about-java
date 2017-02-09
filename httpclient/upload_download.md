@@ -1,6 +1,7 @@
 # use httpclient
 ## file upload
-		public static ResourceFileData getUploadResponse(MultipartFile file, String 				uploadUrl){
+		public static ResourceFileData getUploadResponse(
+                MultipartFile file, String 	uploadUrl){
 			String result = "";
 			CloseableHttpResponse httpResponse=null;
 			CloseableHttpClient httpClient=HttpClients.createDefault();
